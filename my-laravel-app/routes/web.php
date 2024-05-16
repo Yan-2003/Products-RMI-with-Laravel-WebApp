@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Route::get('/', function () {
+    return view('index');
+}); */
+
+
+Route::get('/', [ProductController::class, 'index'])->name('products.index');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');

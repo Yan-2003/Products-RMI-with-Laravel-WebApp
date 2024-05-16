@@ -58,7 +58,7 @@ public class Client {
                             try {
                                 Registry registry = LocateRegistry.getRegistry("127.0.0.1", 9100);
                                 DB student = (DB) registry.lookup("d");
-                                student.QueryBuild("INSERT INTO product_db (name, description, quantity, retailPrice, storePrice) VALUES ('"+ xmlProduct.getName()+"', '"+xmlProduct.getDescription()+"', "+xmlProduct.getQuantiy()+", "+xmlProduct.getRetailPrice()+", "+xmlProduct.getStorePrice()+")");
+                                student.QueryBuild("INSERT INTO Products (name, description, quantity, retailPrice, storePrice) VALUES ('"+ xmlProduct.getName()+"', '"+xmlProduct.getDescription()+"', "+xmlProduct.getQuantiy()+", "+xmlProduct.getRetailPrice()+", "+xmlProduct.getStorePrice()+")");
                                 System.out.println("Data is Successfully Migrated.........");
                             } catch (Exception c) {
 
@@ -82,7 +82,7 @@ public class Client {
         }else{
             System.out.println("Client Closing....");
         }
-       
+        scan.close();
 
 
     }
